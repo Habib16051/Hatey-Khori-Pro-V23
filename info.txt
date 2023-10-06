@@ -1,0 +1,21 @@
+How to add postgresql to the django project:
+
+# Try the following commands into your terminal one by one:
+
+1. psql -U postgres 
+
+2. CREATE DATABASE your_database_name;
+
+3. CREATE USER your_user_name WITH PASSWORD 'your_password';
+
+4. GRANT ALL PRIVILEGES ON DATABASE your_database_name TO your_username;
+
+5. GRANT ALL PRIVILEGES ON SCHEMA public TO your_user_name;
+
+6. ALTER USER your_user_name WITH SUPERUSER;
+
+
+
+finally, type '\q' to exit!
+
+Thanks for stay with us!! 
