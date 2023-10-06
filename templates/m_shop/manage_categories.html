@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Categories</title>
+</head>
+<body>
+    <h1>Manage Categories</h1>
+
+    <ul>
+        {% for category in categories %}
+            <li>
+                {{ category.name }}
+                <!-- Add more category details or actions as needed -->
+            </li>
+        {% empty %}
+            <li>No categories available.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_category' %}">Add a New Category</a>
+    <a href="{% url 'product_list' %}">Back to Product List</a>
+</body>
+</html>
