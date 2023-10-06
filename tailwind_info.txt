@@ -1,0 +1,50 @@
+How to integrated Tailwind css with django:
+
+
+Run these two command in the terminal
+1. npm install -D tailwindcss
+2. npx tailwindcss init
+
+3. Add the paths to all of your template files in your tailwind.config.js file:
+
+/** @type {import('tailwindcss').Config} */
+
+module.exports = {
+  content: ["./**/*.{html,js}"],
+  theme: {
+    extend: {
+      spacing: {
+        'some key': {
+          1.5: '<something>',
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+
+4. Add these @tailwind resources to your 'static/tw/input.css' directory file:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+5. add this @tailwind code to your package.json file:
+
+  "scripts": {
+    
+    
+  "build": "tailwindcss -i ./static/tw/input.css -o ./static/tw/output.css --watch"
+    
+  }
+
+6. Run this command in the terminal:
+
+python manage.py collectstatic
+
+7. Run this command in the terminal too:
+
+npm run build
+
+
+If everything you have done correctly, then tailwind will be worked successfully!!

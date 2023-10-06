@@ -2,7 +2,6 @@
 
 module.exports = {
   content: ["./**/*.{html,js}"],
-  presets: [],
   theme: {
     extend: {
       spacing: {
