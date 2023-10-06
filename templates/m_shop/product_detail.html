@@ -14,9 +14,9 @@
     <img src="{{ product.product_image.url }}" alt="{{ product.product_name }} Image" width="200">
     <!-- Display the product image (assuming 'product_image' is an ImageField in your model) -->
 
-    <a href="{% url 'product_list' %}">Back to Product List</a>
-    <a href="{% url 'update_product' product.id %}">Edit Product</a>
-    <form method="post" action="{% url 'delete_product' product.id %}">
+    <a href="{% url 'm_shop:product_list' %}">Back to Product List</a>
+    <a href="{% url 'm_shop:update_product' product.id %}">Edit Product</a>
+    <form method="post" action="{% url 'm_shop:delete_product' product.id %}">
         {% csrf_token %}
         <button type="submit">Delete Product</button>
     </form>
