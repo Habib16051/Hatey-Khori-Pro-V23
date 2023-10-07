@@ -1,12 +1,16 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Product, ProductCategory
 from .forms import ProductForm
 from django.urls import reverse_lazy  # Required for DeleteView
 
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
+    
 class ProductListView(ListView):
     model = Product
-    template_name = 'm_shop/product_list.html'
+    template_name = 'm_shop/shop.html'
     context_object_name = 'products'
 
 class ProductDetailView(DetailView):
@@ -36,7 +40,7 @@ class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'm_shop/delete_product.html'
     context_object_name = 'product'
-    success_url = reverse_lazy('product_list')
+    success_url = reverse_lazy('shop')
 
 class ManageCategoriesView(ListView):
     model = ProductCategory

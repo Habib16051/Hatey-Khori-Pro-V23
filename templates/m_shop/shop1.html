@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %} Product List {% endblock title %}</title>
+</head>
+
+{% block content %}
+
+<body>
+  <main class="p-6">
+    <h1>Product List</h1>
+
+    <ul>
+      {% for product in products %}
+      <li>
+        <div>
+
+          <a href="{% url 'm_shop:product_detail' product.id %}">{{ product.product_name }}</a>
+
+        </div>
+
+        <p>Category: {{ product.product_category }}</p>
+        <p>Price: {{ product.product_price }}</p> -->
+        <!-- Add more product details as needed -->
+      </li>
+      {% empty %}
+      <li>No products available.</li>
+      {% endfor %}
+    </ul>
+
+    <a href="{% url 'm_shop:add_product' %}" class="text-blue-400 hover:underline">Add a New Product</a>
+  </main>
+</body>
+{% endblock content %}
+
+</html>
