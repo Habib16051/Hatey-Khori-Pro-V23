@@ -14,4 +14,9 @@ urlpatterns = [
     # Add more URLs as needed for your app's views
     # About Urls
     path('about/', views.About.as_view(), name='about'),
+    
+    # Contacts Urls
+    
+    path('contact/', views.ContactView.as_view(), name='contact'),
+    path('contact/success/', views.SuccessView.as_view(), name='success'),
 ]

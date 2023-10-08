@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- 
+<form action="/contact/" method="post">
+  {% csrf_token %} {% for field in form %}
+    <div class="fieldWrapper">{{ field.errors }} {{ field.label_tag }} {{ field }}</div>
+  {% endfor %}
+  <input type="submit" value="Submit" />
+</form> -->
+
+<!-- ##################################################################################################### -->
+
+
+{% block content %}
+
+<!-- <div class="p-10 rounded-xl">
+    <form action="/contact/" method="post" class="max-w-md mx-auto p-4 bg-white">
+        {% csrf_token %} {% for field in form %}
+          <div class="mb-4">{{ field.errors }} {{ field.label_tag }} {{ field }}</div>
+        {% endfor %}
+        <button type="submit" class="bg-green-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+      </form>
+
+</div> -->
+
+
+<div class="bg-gray-400 flex items-center justify-center ">
+    <div class="bg-green rounded-lg w-full max-w-md flex justify-center pt-10">
+        <!-- <h1 class="text-2xl font-bold mb-4 pt-6">Contact Us</h1> -->
+        <form action="/contact/" method="post">
+            {% csrf_token %}
+
+            <!-- Email Field -->
+            <div class="pt-2">
+                <label for="email" class="block text-white font-semibold pb-2">Email</label>
+                <input type="email" id="email" name="email"
+                    class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:border-green-500"
+                    placeholder="Enter your email" />
+                {% if form.email.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.email.errors }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Subject Field -->
+            <div class="pt-6">
+                <label for="subject" class="block text-white font-semibold pb-2">Subject</label>
+                <input type="text" id="subject" name="subject"
+                    class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:border-green-500"
+                    placeholder="Enter the subject" />
+                {% if form.subject.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.subject.errors }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Message Field -->
+            <div class="pt-6">
+                <label for="message" class="block text-white font-semibold pb-2">Message</label>
+                <textarea id="message" name="message" rows="4"
+                    class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:border-green-500"
+                    placeholder="Enter your message"></textarea>
+                {% if form.message.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.message.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="pt-4 flex justify-center mb-2">
+                <button type="submit"
+                    class="bg-green-500 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-green">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    <!-- footer -->
+    <footer class="bg-white pt-16 pb-12 border-t border-gray-100">
+        <div class="container grid grid-cols-1 ">
+            <div class="col-span-1 space-y-4">
+                <img src="media/images/cover.png" alt="logo" class="w-30 rounded-md">
+                <div class="mr-2">
+                    <p class="text-gray-500">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?
+                    </p>
+                </div>
+                <div class="flex space-x-5">
+                    <a href="#" class="text-gray-400 hover:text-gray-500"><i
+                            class="fa-brands fa-facebook-square"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500"><i
+                            class="fa-brands fa-instagram-square"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500"><i
+                            class="fa-brands fa-twitter-square"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <i class="fa-brands fa-github-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-span-2 grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-4 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
+                        <div class="mt-4 space-y-4">
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Marketing</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Analitycs</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Commerce</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Insights</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                        <div class="mt-4 space-y-4">
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
+                            <!-- <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a> -->
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API Status</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
+                        <div class="mt-4 space-y-4">
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Marketing</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Analitycs</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Commerce</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Insights</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                        <div class="mt-4 space-y-4">
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
+                            <!-- <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a> -->
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
+                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API Status</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ./footer -->
+
+
+    <!-- copyright -->
+    <div class="bg-gray-800 py-4">
+        <div class="container flex items-center justify-between">
+            <p class="text-white">&copy; Huo Innovation Ltd. - All Right Reserved</p>
+            <div>
+                <img src="media/images/methods.png" alt="methods" class="h-5">
+            </div>
+        </div>
+    </div>
+    <!-- ./copyright -->
+
+
+{% endblock content %}
