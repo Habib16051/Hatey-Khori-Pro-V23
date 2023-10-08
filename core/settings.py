@@ -38,7 +38,17 @@ INSTALLED_APPS = [
     'customer',
     
     # 3rd party libraries
+     'crispy_forms',
+     
+     
+     
+     
+     
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +61,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+
 
 TEMPLATES = [
     {
