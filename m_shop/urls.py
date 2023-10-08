@@ -12,4 +12,6 @@ urlpatterns = [
     path('product/delete/<int:pk>/', views.ProductDeleteView.as_view(), name='delete_product'),
     path('categories/', views.ManageCategoriesView.as_view(), name='manage_categories'),
     # Add more URLs as needed for your app's views
+    # About Urls
+    path('about/', views.About.as_view(), name='about'),
 ]

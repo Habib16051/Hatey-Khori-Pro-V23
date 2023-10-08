@@ -46,3 +46,9 @@ class ManageCategoriesView(ListView):
     model = ProductCategory
     template_name = 'm_shop/manage_categories.html'
     context_object_name = 'categories'
+
+
+# About Us View
+
+class About(TemplateView):
+    template_name = 'about.html'
