@@ -3,15 +3,20 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Product, ProductCategory
 from .forms import ProductForm
 from django.urls import reverse_lazy  # Required for DeleteView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class HomeView(TemplateView):
     template_name = 'home.html'
     
+@method_decorator(login_required, name='dispatch')
 class ProductListView(ListView):
     model = Product
     template_name = 'm_shop/shop.html'
     context_object_name = 'products'
+    
 
 class ProductDetailView(DetailView):
     model = Product
@@ -94,3 +99,25 @@ class ContactView(FormView):
 
 class SuccessView(TemplateView):
     template_name = 'contacts/success.html'
+
+
+# Registration Page
+
+# from django.shortcuts import render, redirect
+# from .forms import RegisterForm
+# from django.contrib import messages
+
+# # Create your views here.
+# def RegisterView(request):
+#     if request.method == "POST":
+#         form = RegisterForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             messages.success(request, f"Account created for {username}!")
+#             return redirect('login')
+#     else:
+#         form = RegisterForm()
+
+#     context = {'form': form}
+#     return render(request, 'registration/register.html', context)

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'customer',
     
     # 3rd party libraries
-     'crispy_forms',
+  
      
      
      

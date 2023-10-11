@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        
+        {% block title %}
+        Login
+        {% endblock title %}
+            
+       </title>
+    <!-- Include Tailwind CSS -->
+
+</head>
+
+
+{% block content %}
+
+<body class="bg-gray-300 flex items-center justify-center h-screen">
+    <div class="max-w-md bg-green-300 p-8 shadow-md rounded-md">
+        <h1 class="text-2xl font-bold mb-4">Login</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-4">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="mb-4">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Login</button>
+        </form>
+        
+        <p class="mt-4 text-bold">Don't have an account? <a href="{% url 'customer:register' %}" class="text-blue-800 hover:underline">Register</a></p>
+    </div>
+    
+{% endblock content %}
+    
+
+</body>
+</html>
