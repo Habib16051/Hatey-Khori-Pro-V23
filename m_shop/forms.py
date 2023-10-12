@@ -15,8 +15,4 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
 
 
-# Registration Form
-
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 

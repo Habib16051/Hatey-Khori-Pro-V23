@@ -1,9 +1,18 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Product: {{ product.product_name }}</title>
+    <title>
+        
+        {% block title %}
+        Edit Product: {{ product.product_name }}
+        {% endblock title %}
+            
+        </title>
 </head>
 <body>
+    
+    {% block content %}
     <h1>Edit Product: {{ product.product_name }}</h1>
 
     <form method="post" enctype="multipart/form-data">
@@ -13,6 +22,9 @@
         <button type="submit">Save Changes</button>
     </form>
 
-    <a href="{% url 'm_shop:product_detail' product.id %}">Cancel</a>
+    <a href="{% url 'm_shop:product_detail' product.id %}">Back</a>
+    {% endblock content %}
+        
+
 </body>
 </html>

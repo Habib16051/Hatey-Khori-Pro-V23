@@ -1,18 +1,22 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Add a New Product</title>
-</head>
-<body>
+  <head>
+    <title>{% block title %} Add a New Product {% endblock title %}</title>
+  </head>
+  <body>
+    {% block content %}
+
     <h1>Add a New Product</h1>
 
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
+      {% csrf_token %} {{ form.as_p }}
 
-        <button type="submit">Save Product</button>
+      <button type="submit">Save Product</button>
     </form>
 
     <a href="{% url 'm_shop:shop' %}">Back to Product List</a>
-</body>
+
+    {% endblock content %}
+  </body>
 </html>

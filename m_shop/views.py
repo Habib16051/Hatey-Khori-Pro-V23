@@ -23,23 +23,38 @@ class ProductDetailView(DetailView):
     template_name = 'm_shop/product_detail.html'
     context_object_name = 'product'
 
-class ProductCreateView(CreateView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
     template_name = 'm_shop/add_product.html'
 
     def form_valid(self, form):
-        product = form.save()
-        return redirect('product_detail', pk=product.pk)
+        product = form.save(commit=False)
+        product.user = self.request.user  # Assign the current user
+        product.save()
+        return redirect('m_shop:product_detail', pk=product.pk)
+
+
+# class ProductUpdateView(UpdateView):
+#     model = Product
+#     form_class = ProductForm
+#     template_name = 'm_shop/update_product.html'
+#     context_object_name = 'product'
+
+#     def get_success_url(self):
+#         return reverse_lazy('product_detail', kwargs={'pk': self.object.pk})
+
+from django.urls import reverse_lazy
 
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'm_shop/update_product.html'
     context_object_name = 'product'
+    success_url = reverse_lazy('product_detail')
 
-    def get_success_url(self):
-        return reverse_lazy('product_detail', kwargs={'pk': self.object.pk})
 
 class ProductDeleteView(DeleteView):
     model = Product
